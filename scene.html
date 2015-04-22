@@ -1,0 +1,59 @@
+<html>
+<head>
+	<title>Mouse Tracking in Three.js</title>
+	<style>
+		#wrapper {
+			margin: 0 auto;
+			width: 900px;
+		}
+
+		#sidebar {
+			height: 100%;
+			display: block;
+			float: left;
+			width: 200px;
+		}
+
+		#content {
+			height: 100%;
+			width: 700px;
+			display: block;
+			float: left;
+		}
+
+		#container {
+			height: 600px;
+			width: 700px;
+		}
+	</style>
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="wrapper">
+	<div id="sidebar">
+		<label for="ddlGeometry">Choose Geometry</label>
+		<select name="ddlGeometry" id="ddlGeometry">
+			<option value="cube">Cube</option>
+			<option value="cylinder">Cylinder</option>
+			<option value="sphere">Sphere</option>
+		</select>
+	</div>
+	<div id="content">
+		<div id="container"></div>
+	</div>
+</div>
+
+<!-- make sure this is just below the closing </body> tag -->
+<!-- for some reason the latest three.js doesn't work, so we use the one from the example file-->
+<script src="js/three.min.js"></script>
+<script type="text/javascript" src="js/OrbitControls.js"></script>
+<script type="text/javascript" src="js/stats.min.js"></script>
+<script type="text/javascript" src="js/Detector.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!--make sure this is last-->
+<script src="js/scene.js"></script>
+
+</body>
+</html>    
