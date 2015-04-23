@@ -20,7 +20,7 @@ function animate() {
 function init() {
 
 	camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 10000);
-	camera.position.z = 5;
+	camera.position.z = 3;
 
 	controls = new THREE.OrbitControls(camera, document.getElementById('container'));
 //        controls.damping = 0.2;
@@ -43,7 +43,7 @@ function init() {
 
 
 	// texture - texture must not be in same folder or there is an error.
-	var texture = THREE.ImageUtils.loadTexture('images/texture.jpg', {}, function () {
+	var texture = THREE.ImageUtils.loadTexture('images/texturepw.jpg', {}, function () {
 			// use to test when image gets loaded if it does
 			render();
 		},
@@ -86,6 +86,7 @@ function init() {
 
 	// Bind dropdown event onchange
 	$('#ddlGeometry').on('change', changePolygon);
+	$('#ddlTexture').on('change', changeTexture);
 
 	//
 
@@ -112,6 +113,63 @@ function render() {
 	renderer.render(scene, camera);
 	stats.update();
 
+}
+
+function changeTexture(e) {
+	var selected = $(this).val();
+
+	//group.remove(mesh);
+
+	switch (selected) {
+		case 't1':
+			texture = THREE.ImageUtils.loadTexture('images/texture1.jpg', {}, function () {
+					// use to test when image gets loaded if it does
+					render();
+				},
+				function () {
+					alert('error')
+				});
+
+			material = new THREE.MeshBasicMaterial({map: texture});
+			break;
+		case 't2':
+			texture = THREE.ImageUtils.loadTexture('images/texture2.jpg', {}, function () {
+					// use to test when image gets loaded if it does
+					render();
+				},
+				function () {
+					alert('error')
+				});
+
+			material = new THREE.MeshBasicMaterial({map: texture});
+			break;
+		case 't3':
+			texture = THREE.ImageUtils.loadTexture('images/texture3.jpg', {}, function () {
+					// use to test when image gets loaded if it does
+					render();
+				},
+				function () {
+					alert('error')
+				});
+
+			material = new THREE.MeshBasicMaterial({map: texture});
+			break;
+		case 'tpw':
+			texture = THREE.ImageUtils.loadTexture('images/texturepw.jpg', {}, function () {
+					// use to test when image gets loaded if it does
+					render();
+				},
+				function () {
+					alert('error')
+				});
+
+			material = new THREE.MeshBasicMaterial({map: texture});
+			break;
+	}
+
+	mesh.material = material;
+
+	render();
 }
 
 function changePolygon(e) {
