@@ -1,0 +1,26 @@
+body {
+	background-color: beige;
+}
+#wrapper {
+	margin: 0 auto;
+	width: 900px;
+}
+
+#sidebar {
+	height: 100%;
+	display: block;
+	float: left;
+	width: 200px;
+}
+
+#content {
+	height: 100%;
+	width: 700px;
+	display: block;
+	float: left;
+}
+
+#container {
+	height: 600px;
+	width: 700px;
+}
